@@ -173,9 +173,9 @@ abstract class AbstractGenerator implements GeneratorInterface
     /**
      * {@inheritDoc}
      */
-    public function getOutput($input, array $options = array())
+    public function getOutput($input, array $options = array(),$filename=false)
     {
-        $filename = $this->createTemporaryFile(null, $this->getDefaultExtension());
+        $filename = ($filename != false) ? $filename : $this->createTemporaryFile(null, $this->getDefaultExtension());
 
         $this->generate($input, $filename, $options);
 
